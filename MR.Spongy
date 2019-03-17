@@ -1,0 +1,378 @@
+from OpenGL.GL import *
+from OpenGL.GLU import *
+from OpenGL.GLUT import *
+from math import *
+import numpy as np
+
+
+
+def Mr_Spongy():
+    glClearColor(.5, .9, .9, 1) # clear background
+    glClear(GL_COLOR_BUFFER_BIT)
+    glBegin(GL_POLYGON)  # hat
+    glColor(1, 1, 1)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.089 * sin(angle)
+        y = 0.30 * cos(angle) + 0.69
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # white hat
+    glColor(1, 0, 0)
+    for angle in np.arange(0, pi, 0.01):
+        x = 0.089 * cos(angle)
+        y = 0.089 * 1 * sin(angle) - 0.09
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # gens hat
+    glColor(.3, .4, .4)
+    for angle in np.arange(0, pi, 0.01):
+        x = 0.089 * cos(angle)
+        y = 0.13 * 1 * sin(angle) + 0.60
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  #  face
+    glColor(1, 1, 0)
+    glVertex2d(0.38, -0.32)
+    glVertex2d(-0.38, -0.32)
+    glVertex2d(-0.41, 0.60)
+    glVertex2d(0.41, 0.60)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  # body
+    glColor(1, 1, 1)
+    glVertex2d(0.38, -0.32)
+    glVertex2d(-0.38, -0.32)
+    glVertex2d(-0.38, -0.45)
+    glVertex2d(0.38, -.45)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # body
+    glColor(.2, 0,0)
+    glVertex2d(0.38, -.45)
+    glVertex2d(-0.38, -0.45)
+    glVertex2d(-0.38, -0.65)
+    glVertex2d(0.38, -.65)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  # left leg
+    glColor(.2 ,0, 0)
+    glVertex2d(-.18, -.85)
+    glVertex2d(-0.28, -0.85)
+    glVertex2d(-0.28, -0.65)
+    glVertex2d(-0.18, -.65)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # right leg
+    glColor(.2, 0, 0)
+    glVertex2d(.18, -.85)
+    glVertex2d(0.28, -0.85)
+    glVertex2d(0.28, -0.65)
+    glVertex2d(0.18, -.65)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  # foot
+    glColor(0, 0, 0)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.10 * sin(angle) + 0.23
+        y = 0.10 * cos(angle) - 0.90
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)
+    glColor(0, 0, 0)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.10 * sin(angle) - 0.23
+        y = 0.10 * cos(angle) - 0.90
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # foot border
+    glColor(.5, .9, .9)
+    glVertex2d(0.5, -0.9)
+    glVertex2d(-0.5, -0.9)
+    glVertex2d(-0.5, -1.2)
+    glVertex2d(0.5, -1.2)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  # left arm
+    glColor(1, 1, 1)
+    glVertex2d(-0.38, 0.12)
+    glVertex2d(-0.58, 0.12)
+    glVertex2d(-0.58, -0.09)
+    glVertex2d(-0.38, -.09)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # right arm
+    glColor(1, 1, 1)
+    glVertex2d(0.38, 0.12)
+    glVertex2d(0.58, 0.12)
+    glVertex2d(0.58, -0.09)
+    glVertex2d(0.38, -.09)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # right arm
+    glColor(1, 1, 0)
+    glVertex2d(0.58, 0.04)
+    glVertex2d(0.87, 0.04)
+    glVertex2d(0.87, -0.03)
+    glVertex2d(0.58, -.03)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # left arm
+    glColor(1, 1, 0)
+    glVertex2d(-0.58, 0.04)
+    glVertex2d(-0.87, 0.04)
+    glVertex2d(-0.87, -0.03)
+    glVertex2d(-0.58, -.03)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  # right hand
+    glColor(1, 1, 0)
+    for theta in np.arange(0, 2 * pi, 0.01):
+        x = 0.04 * cos(theta)+.88
+        y = 0.04 * sin(theta)-.0008
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # left hand
+    glColor(1, 1, 0)
+    for theta in np.arange(0, 2 * pi, 0.01):
+        x = 0.04 * cos(theta) - .88
+        y = 0.04 * sin(theta) - .0008
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  # right eye border
+    glColor(0, 0, 0)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.138 * sin(angle) + 0.13
+        y = 0.138* cos(angle) + 0.28
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # right eye
+    glColor(1, 1, 1)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.13 * sin(angle) + 0.13
+        y = 0.134* cos(angle) + 0.28
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # rightEyelashes
+    glColor(0, 0, 0)
+    glVertex2d(-0.14, 0.46)
+    glVertex2d(-0.12, 0.46)
+    glVertex2d(-0.12, 0.41)
+    glVertex2d(-0.14, 0.41)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # rightEyelashes
+    glColor(0, 0, 0)
+    glVertex2d(-0.08, 0.46)
+    glVertex2d(-0.06, 0.46)
+    glVertex2d(-0.06, 0.40)
+    glVertex2d(-0.08, 0.40)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # rightEyelashes
+    glColor(0, 0, 0)
+    glVertex2d(-0.20, 0.46)
+    glVertex2d(-0.18, 0.46)
+    glVertex2d(-0.18, 0.40)
+    glVertex2d(-0.20, 0.40)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # left eye border
+    glColor(0, 0, 0)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.138 * sin(angle) - 0.13
+        y = 0.138 * cos(angle) + 0.28
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  #left eye
+    glColor(1, 1, 1)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.13 * sin(angle) - 0.13
+        y = 0.134 * cos(angle) + 0.28
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # leftEyelashes
+    glColor(0, 0, 0)
+    glVertex2d(0.14, 0.46)
+    glVertex2d(0.12, 0.46)
+    glVertex2d(0.12, 0.41)
+    glVertex2d(0.14, 0.41)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # leftEyelashes
+    glColor(0, 0, 0)
+    glVertex2d(0.08, 0.46)
+    glVertex2d(0.06, 0.46)
+    glVertex2d(0.06, 0.40)
+    glVertex2d(0.08, 0.40)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # leftEyelashes
+    glColor(0, 0, 0)
+    glVertex2d(0.20, 0.46)
+    glVertex2d(0.18, 0.46)
+    glVertex2d(0.18, 0.40)
+    glVertex2d(0.20, 0.40)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  #inside left eye
+    glColor(.3, .7, 1)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.06 * sin(angle) - 0.11
+        y = 0.06 * cos(angle) + 0.30
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # inside inside left eye
+    glColor(0, 0, 0)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.04 * sin(angle) - 0.11
+        y = 0.04 * cos(angle) + 0.30
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # inside right eye
+    glColor(.3, .7, 1)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.06 * sin(angle) + 0.11
+        y = 0.06 * cos(angle) + 0.30
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # inside inside right eye
+    glColor(0, 0, 0)
+    for angle in np.arange(0, 2 * pi, 0.01):
+        x = 0.04 * sin(angle) + 0.11
+        y = 0.04 * cos(angle) + 0.30
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  # mouth
+    glColor(0, 0, 0)
+    for angle in np.arange(0,  pi, 0.01):
+        x = 0.2 *cos(angle)
+        y = 0.2*-1* sin(angle)+.09
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # teeth
+    glColor(1, 1, 1)
+    glVertex2d(0.088, 0.04)
+    glVertex2d(0.011, 0.04)
+    glVertex2d(0.011, 0.09)
+    glVertex2d(0.088, .09)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # teeth
+    glColor(1, 1, 1)
+    glVertex2d(-0.088, 0.04)
+    glVertex2d(-0.011, 0.04)
+    glVertex2d(-0.011, 0.09)
+    glVertex2d(-0.088, .09)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # Tongue
+    glColor(1, 0, 0)
+    for angle in np.arange(0, pi, 0.01):
+        x = 0.089 * cos(angle)
+        y = 0.028* -1 * sin(angle) - .077
+        glVertex2d(x, y)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  # Belt
+    glColor(0, 0, 0)
+    glVertex2d(-0.218, -0.48)
+    glVertex2d(-0.365, -0.48)
+    glVertex2d(-0.365, -0.53)
+    glVertex2d(-0.218, -.53)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # Belt
+    glColor(0, 0, 0)
+    glVertex2d(0.218, -0.48)
+    glVertex2d(0.365, -0.48)
+    glVertex2d(0.365, -0.53)
+    glVertex2d(0.218, -.53)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # Belt
+    glColor(0, 0, 0)
+    glVertex2d(0.183, -0.48)
+    glVertex2d(-0.190, -0.48)
+    glVertex2d(-0.190, -0.53)
+    glVertex2d(0.183, -.53)
+    glEnd()
+    glFlush()
+
+
+
+    glBegin(GL_POLYGON)  # cravat
+    glColor(1, 0, 0)
+    glVertex2d(-0.020, -0.32)
+    glVertex2d(0.04, -0.32)
+    glVertex2d(0.04, - 0.35)
+    glVertex2d(-0.020, -.35)
+    glEnd()
+    glFlush()
+    glBegin(GL_POLYGON)  # cravat
+    glColor(1, 0, 0)
+    glVertex2d(0.04, - 0.35)
+    glVertex2d(-0.020, -.35)
+    glVertex2d(-0.050, -0.50)
+    glVertex2d(0.070, -0.50)
+    glEnd()
+    glFlush()
+    glBegin(GL_TRIANGLES)  # triangle cravat
+    glColor(1, 0, 0)
+    glVertex2d(-0.050, -0.50)
+    glVertex2d(0.070, -0.50)
+    glVertex2d(0.01, -0.63)
+    glEnd()
+    glFlush()
+
+
+
+glutInit()
+glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
+glutInitWindowSize(500, 500)
+glutCreateWindow(b"Mr.Spongy")
+
+glutDisplayFunc(Mr_Spongy)
+glutMainLoop()
